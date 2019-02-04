@@ -1,0 +1,8 @@
+= render 'shared/page_title', title: @recipe.name.capitalize
+.well.col-md-8.col-md-offset-2
+  %h4.description
+  = simple_format(@recipe.description)
+  .recipe-actions
+    = link_to 'Edit this recipe', edit_recipe_path(@recipe), class: 'btn btn-xs btn-warning'
+    = link_to 'Delete this recipe', recipe_path(@recipe), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-xs btn-danger'
+  = link_to 'Return to recipes listing', recipes_path, class: 'btn btn-xs btn-primary'
