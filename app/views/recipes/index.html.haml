@@ -1,1 +1,10 @@
-'this is recipe!'
+= render 'shared/page_title', title: 'All recipes'
+
+- @recipes.each do |recipe|
+  .row
+    .col-md-8.well
+      %h4= link_to recipe.name, recipe_path(recipe)
+      %p= truncate(recipe.description, length: 150)
+      %p
+        %span.quiet
+          %small= "Created" + time_ago_in_words(recipe.created_at) + "ago" 
