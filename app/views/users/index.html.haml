@@ -1,0 +1,5 @@
+= render 'shared/page_title', title: 'All users'
+
+- @users.each do |user|
+  .row.col-md-8
+    =user.username

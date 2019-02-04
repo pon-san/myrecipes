@@ -7,4 +7,4 @@
       %p= truncate(recipe.description, length: 150)
       %p
         %span.quiet
-          %small= "Created" + time_ago_in_words(recipe.created_at) + "ago" 
+          %small= "Created " + time_ago_in_words(recipe.created_at) + " ago" 

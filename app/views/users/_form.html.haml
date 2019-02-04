@@ -1,0 +1,30 @@
+= render 'shared/errors', obj: @user
+
+.row
+  .col-md-12
+    = form_for(@user, :html => {class: 'form-horizontal', role: 'form'}) do |f|
+      .form-group
+        .control-label.col-md-2
+          = f.label :username, 'Username'
+        .col-md-8
+          = f.text_field :username, class: 'form-control', placeholder: 'enter your name', autofocus: true 
+      .form-group
+        .control-label.col-md-2
+          = f.label :email
+        .col-md-8
+          = f.email_field :email, class: 'form-control', placeholder: 'enter your email'
+      .form-group
+        .control-label.col-md-2
+          = f.label :password
+        .col-md-8
+          = f.password_field :password, class: 'form-control', placeholder: 'enter your password'
+      .form-group
+        .control-label.col-md-2
+          = f.label :password_confirmation, 'confirm'
+        .col-md-8
+          = f.password_field :password_confirmation, class: 'form-control', placeholder: 'confirm your password'
+      .form-group
+        .col-md-offset-2.col-md-10
+          = f.submit(@user.new_record? ? 'Create my account' : 'Update my account', class: 'btn btn-primary btn-lg btn-xlarge')
+    .col-md-offset-4.col-md-4.colormatch
+      = link_to 'Cancel request and return to recipes listing', recipes_path

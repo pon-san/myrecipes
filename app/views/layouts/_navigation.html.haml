@@ -1,24 +1,21 @@
 %nav.navbar.navbar-expand-lg.navbar-light.bg-light
-  .navbar-brand= link_to "Navbar", "#"
+  .navbar-brand= link_to "HOME", root_path
   %button.navbar-toggler{type: "button", data_toggle: "collapse", data_target: "#navbarSupportedContent", aria_controls: "navbarSupportedContent", aria_expanded: "false", aria_label: "Toggle navigation"}
     %span.navbar-toggler-icon
 
   .collapse.navbar-collapse#navbarSupportedContent
     %ul.navbar-nav.mr-auto
-      %li.nav-item.active
-        .nav-link= link_to "Home", "#"
       %li.nav-item
-        .nav-link= link_to "Link", "#"
+        = link_to "All recipes", recipes_path, class: 'nav-link'
+      %li.nav-item
+        = link_to "All users", users_path, class: 'nav-link'
       %li.nav-item.dropdown
-        #navbarDropdown.nav-link.dropdown-toggle{role: "button", data_toggle: "dropdown", aria_haspopup: "true", aria_expanded: "false"}
-          = link_to "Dropdown", "#"
-        .dropdown-menu{aria_labelledby: "navbarDropdown"}
-          .dropdown-item= link_to "Action", "#"
-          .dropdown-item= link_to "Action", "#"
+        = link_to "Dropdown", "#", id: 'navbarDropdown', class: 'nav-link dropdown-toggle', role: "button", data: {toggle: "dropdown"}, aria: {haspopup: "true", expanded: "false"}
+        .dropdown-menu{aria: {labelledby: "navbarDropdown"}}
+          = link_to "Action", "#", class: 'dropdown-item'
+          = link_to "Action", "#", class: 'dropdown-item'
           .dropdown-divider
-          .dropdown-item= link_to "somethingelse", "#"
-      %li.nav-item
-        .nav-link.disabled= link_to "Disabled", "#"
+          = link_to "somethingelse", "#", class: 'dropdown-item'
     %form.form-inline.my-2.my-lg-0
-      %input.form-control.mr-sm-2{type: "search", placeholder: "Search", aria_label: "Search"}
+      %input.form-control.mr-sm-2{type: "search", placeholder: "Search", aria: {label: "Search"}}
       %button.btn.btn-outline-success.my-2.my-sm-0{type: "submit"}Search
