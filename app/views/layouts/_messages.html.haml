@@ -1,0 +1,5 @@
+.flash-messages
+  - flash.each do |name, msg|
+    .alert{class: "alert-#{name}"}
+      =link_to "×", "#", class: 'close', data: {dismiss: "alert"}
+      = msg.html_safe

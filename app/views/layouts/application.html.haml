@@ -11,9 +11,7 @@
 
   %body
     = render 'layouts/navigation'
-    - flash.each do |name, msg|
-      .alert{class: "alert-#{name}"}
-        = msg.html_safe
+    = render 'layouts/messages'
     .container 
       = yield
 
