@@ -8,3 +8,5 @@
       %p
         %span.quiet
           %small= "Created " + time_ago_in_words(recipe.created_at) + " ago" 
+
+= paginate @recipes

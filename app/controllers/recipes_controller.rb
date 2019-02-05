@@ -2,6 +2,7 @@ class RecipesController < ApplicationController
 
   def index
     @recipes = Recipe.all
+    @recipes = Recipe.page(params[:page]).per(10)
   end
 
   def new

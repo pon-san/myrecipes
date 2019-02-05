@@ -1,1 +1,11 @@
 = render 'shared/page_title', title: @user.username + "'s show page"
+
+.row
+- if @user.recipes.count != 0
+  %h4.center= @user.username + "'s recipes"
+  .center= will_paginate @user_recipes
+  = render 'recipes/recipe', obj: @user_recipes
+  .center= will_paginate @user_recipes
+-else
+  .center No recipes yet!
+

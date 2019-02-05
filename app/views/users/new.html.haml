@@ -1,3 +1,22 @@
-= render 'shared/page_title', title: 'Create new user'
+= render 'shared/errors', obj: @user
 
-= render 'form'
+.users-signin-signup
+  .headline
+    %h1.title Signup
+    .link-to-signup= link_to 'You have an account? Login here!', login_path
+  = form_for(:user, :html => {class: 'form-horizontal signup-signin-form', role: 'form'}, url: signup_path) do |f|
+    .form-group
+      .control-label.top-label= f.label :username
+      .form-input= f.text_field :username, class: 'form-control', placeholder: 'enter your username'
+    .form-group
+      .control-label.top-label= f.label :email
+      .form-input= f.email_field :email, class: 'form-control', placeholder: 'enter your email'
+    .form-group
+      .control-label.top-label= f.label :password
+      .form-input= f.password_field :password, class: 'form-control', placeholder: 'enter your password'  
+    .form-group
+      .control-label= f.label :password_confirmation
+      .form-input= f.password_field :password_confirmation, class: 'form-control', placeholder: 'confirm your password'
+    .form-group
+      = f.submit 'Signup', class: 'btn btn-outline-primary btn-block'
+  

@@ -1,0 +1,14 @@
+.users-signin-signup
+  .headline
+    %h1.title Login
+    .link-to-signup= link_to 'You do not have an account? Sign up now!', signup_path
+  = form_for(:session, :html => {class: 'form-horizontal signup-signin-form', role: 'form'}, url: login_path) do |f|
+    .form-group
+      .control-label.top-label= f.label :email
+      .form-input= f.email_field :email, class: 'form-control', placeholder: 'enter your email'
+    .form-group
+      .control-label= f.label :password
+      .form-input= f.password_field :password, class: 'form-control', placeholder: 'enter your password'
+    .form-group
+      = f.submit 'Login', class: 'btn btn-outline-primary btn-block'
+  
