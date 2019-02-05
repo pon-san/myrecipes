@@ -3,6 +3,7 @@ class User < ApplicationRecord
 
   has_secure_password
   default_scope -> { order(updated_at: :desc) }
+  mount_uploader :avatar, AvatarUploader
 
   before_save { self.email = email.downcase }
   

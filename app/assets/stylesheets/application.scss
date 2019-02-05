@@ -11,6 +11,9 @@ $navbar-default-bg: #073B15;
 a {
   text-decoration: none;
 }
+label {
+  margin-bottom: 0.2em;
+}
 
 .form-control {
   border-radius: 6px;
@@ -21,6 +24,29 @@ a {
 
 .container {
   width: 80%;
+}
+
+.alert-error-box {
+  position: relative;
+  color: red;
+  border: 1px solid red;
+  border-radius: 6px;
+  padding: 0.3em 0.6em;
+
+  .error-msg {
+    display: inline-block;
+    max-width: 90%;
+  }
+  .alert-close {
+    display: inline-block;
+    font-size: 1.4em;
+    float: right;
+    cursor: pointer;
+    opacity: 0.5;
+    position: absolute;
+    right: 0.5em;
+    top: 0;
+  }
 }
 
 #logo {

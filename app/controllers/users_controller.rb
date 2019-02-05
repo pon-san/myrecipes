@@ -28,12 +28,18 @@ class UsersController < ApplicationController
   end
 
   def edit
-
   end
 
   def update
+    user_params.delete('id')
 
-  end
+    if @user.update(user_params)
+      flash[:success] = 'your account was successfully updated'
+      redirect_to user_path(@user)
+    else
+      render 'edit'
+    end
+  end 
 
   def destroy
 
@@ -61,6 +67,6 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:username, :email, :password, :password_confirmation)
+    params.require(:user).permit(:username, :email, :avatar, :password, :password_confirmation)
   end
 end

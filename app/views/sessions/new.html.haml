@@ -4,11 +4,23 @@
     .link-to-signup= link_to 'You do not have an account? Sign up now!', signup_path
   = form_for(:session, :html => {class: 'form-horizontal signup-signin-form', role: 'form'}, url: login_path) do |f|
     .form-group
+      - if @email_error.present?
+        .alert-error-box
+          .error-msg= @email_error
+          .alert-close ×
       .control-label.top-label= f.label :email
       .form-input= f.email_field :email, class: 'form-control', placeholder: 'enter your email'
     .form-group
       .control-label= f.label :password
       .form-input= f.password_field :password, class: 'form-control', placeholder: 'enter your password'
     .form-group
+      .control-label= f.label :password_confirmation
+      .form-input= f.password_field :password_confirmation, class: 'form-control', placeholder: 'enter your password'  
+    .form-group
       = f.submit 'Login', class: 'btn btn-outline-primary btn-block'
+
+:javascript 
+  $('.alert-close').on('click', function(e) {
+    $(e.target.closest('.alert-error-box')).remove()
+  })  
   

@@ -1,0 +1,17 @@
+- obj.each do |recipe|
+  .row
+    .col-md-2
+      %section.chef_info.center
+        = image_tag recipe.user.avatar.profile.url
+    .col-md-8.well
+      %h4= link_to recipe.name, recipe_path(recipe)
+      %p= truncate(recipe.description, length: 150)
+      %p
+        %span.quiet
+          %small= "Created" + time_ago_in_words(recipe.created_at) + "ago by" + recipe.user.username.capitalize 
+
+      - if logged_in? && (current_user == recipe.user || current_user.admin?)
+        .recipe-actions
+          = link_to 'Edit this recipe', edit_recipe_path(recipe), class: 'btn btn-xs btn-warning'
+          = link_to 'Delete this recipe', recipe_path(recipe), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-xs btn-danger'
+  
