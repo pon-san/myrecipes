@@ -14,5 +14,9 @@
     - flash.each do |name, msg|
       .alert{class: "alert-#{name}"}
         = msg.html_safe
-    .container
+    .container 
       = yield
+
+    =render 'layouts/footer'
+
+

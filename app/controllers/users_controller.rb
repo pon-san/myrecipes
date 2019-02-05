@@ -9,6 +9,8 @@ class UsersController < ApplicationController
   end
 
   def show
+    @user_recipes = @user.recipes.page(params[:page]).per(10)
+
   end
 
   def new

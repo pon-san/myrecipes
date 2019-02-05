@@ -1,9 +1,9 @@
 - obj.each do |recipe|
   .row
     .col-md-2
-      %section.chef_info.center
-        = image_tag recipe.user.avatar.profile.url
-    .col-md-8.well
+      %section.user_info.center
+        = gravatar_for(recipe.user, size: 120)
+    .col-md-8.recipe-box
       %h4= link_to recipe.name, recipe_path(recipe)
       %p= truncate(recipe.description, length: 150)
       %p

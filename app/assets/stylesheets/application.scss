@@ -6,11 +6,12 @@
 @import "users";
 @import "signup_signin";
 
-$navbar-default-bg: #073B15;
+$mainColor: #00bfff;
 
 a {
   text-decoration: none;
 }
+
 label {
   margin-bottom: 0.2em;
 }
@@ -47,6 +48,10 @@ label {
     right: 0.5em;
     top: 0;
   }
+
+  .panel-title {
+    color: red;
+  }
 }
 
 #logo {
@@ -64,16 +69,16 @@ label {
 }
 
 .jumbotron {
-  background-image: asset-url('sample.png');
-  height: 300px;
+  background-image: asset-url('sample.jpg');
+  height: 450px;
   background-size: cover;
+  margin-top: 30px;
 }
 
 .jumbotron h1, h2 {
-  color: #fff;
+  color: black;
   text-align: center;
   margin-bottom: 30px;
-  letter-spacing: -1px;
   font-weight: bold;
 }
 
@@ -120,5 +125,9 @@ footer ul {
 footer ul li {
   float: left;
   margin-left: 15px;
+}
+
+.colormatch a {
+  color: $mainColor;
 }
 

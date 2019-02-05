@@ -4,21 +4,18 @@
   .col-md-12
     = form_for(@recipe, :html => {class: 'form-horizontal', multipart: true, role: 'form'}) do |f|
       .form-group
-        .control-label.col-md-2
+        .control-label
           = f.label :name
-        .col-md-8
-          = f.text_field :name, class: 'form-control', placeholder: 'name of recipe', autofocus: true
+        = f.text_field :name, class: 'form-control', placeholder: 'name of recipe', autofocus: true
       .form-group
-        .control-label.col-md-2
+        .control-label
           = f.label :description
-        .col-md-8
-          = f.text_area :description, rows: 10, class: 'form-control', placeholder: 'name of recipe'
+        = f.text_area :description, rows: 10, class: 'form-control', placeholder: 'name of recipe'
 
       .form-group
-        .col-md-offset-2.col-md-10
-          = f.submit class: 'btn btn-primary btn-lg btn-xlarge'
+        = f.submit class: 'btn btn-outline-primary btn-lg'
       
-    .col-md-offset-4.col-md-4.colormatch
-      = link_to 'Cancel request and return to recipes listing', recipes_path
+    .colormatch
+      = link_to '[ Cancel request and return to recipes listing ]', recipes_path
 
  
