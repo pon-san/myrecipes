@@ -19,14 +19,14 @@
           -#   = link_to ingredient.name.capitalize, ingredient_path(ingredient) 
           - if logged_in?  
             = link_to "Create a new recipe", new_recipe_path, class: 'dropdown-item'
-            = link_to "Action", "#", class: 'dropdown-item'
+            = link_to "Comming soon", "#", class: 'dropdown-item'
           .dropdown-divider
-          = link_to "somethingelse", "#", class: 'dropdown-item'
+          = link_to "Nothing yet", "#", class: 'dropdown-item'
 
     %ul.navbar-nav.navbar-right
       - if logged_in?
         .btn-group
-          %button.btn.btn-danger.dropdown-toggle{type: "button", data: {toggle: "dropdown",}, aria: {haspopup: "true", expanded: "false"}}
+          %button.btn.btn-primary.dropdown-toggle{type: "button", data: {toggle: "dropdown",}, aria: {haspopup: "true", expanded: "false"}}
             =current_user.username.capitalize + "'s profile"
           .dropdown-menu
             =link_to "View your profile", user_path(current_user), class: 'dropdown-item'
