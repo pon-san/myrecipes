@@ -37,6 +37,7 @@ gem 'jquery-rails'
 gem 'kaminari'
 gem 'carrierwave'
 gem 'rmagick'
+gem 'fog'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
