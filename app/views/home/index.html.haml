@@ -1,6 +1,7 @@
 .jumbotron.center
   %h1 Welcome to myrecipes
-  %p.signup-for-guest= link_to "Signup now !", signup_path, class: 'btn btn-outline-success btn-lg', role: "button"
+  - if !logged_in?
+    %p.signup-for-guest= link_to "Signup now !", signup_path, class: 'btn btn-outline-success btn-lg', role: "button"
 
 .row
   .col-lg-4
