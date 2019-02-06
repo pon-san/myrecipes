@@ -1,0 +1,13 @@
+= render 'shared/errors', obj: @ingredient
+.row
+  .col-md-12
+    = form_for(@ingredient, :html => {class: 'form-horizontal', multipart: true, role: 'form'}) do |f|
+      .form-group
+        .control-label
+          = f.label :name
+        = f.text_field :name, class: 'form-control', placeholder: 'name of recipe', autofocus: true
+      .form-group
+        = f.submit(@ingredient.new_record? ? "Add Ingredient" : "Update Ingredient", class: "btn btn-outline-success btn-lg")
+      
+    .colormatch.center
+      = link_to '[ Cancel request and return to recipes listing ]', recipes_path

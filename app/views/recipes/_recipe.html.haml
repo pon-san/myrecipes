@@ -1,17 +1,21 @@
 - obj.each do |recipe|
-  .recipe-box.card{style: 'width: 49.7%;'}
-    .card-img-top= image_tag(recipe.image.url)
-    .card-body
-      %h4.card-title 
-        = link_to recipe.name, recipe_path(recipe)
-      %p.card-description
-        = truncate(recipe.description, length: 150)
-      %p
-        %span.quiet
-          %small= "Created" + time_ago_in_words(recipe.created_at) + "ago by" + recipe.user.username.capitalize 
+  .recipe-content
+    .left-contents
+      .image-box= image_tag(recipe.image.url)
+
+    .right-contents
+      %h3.recipe-title= link_to recipe.name, recipe_path(recipe)
+      .recipe-description= truncate(recipe.description, length: 150)
+      - if recipe.ingredients.any?
+        .ingredients
+          %span Ingredients: 
+          = render recipe.ingredients
+      .other-info
+        %small= "Created" + time_ago_in_words(recipe.created_at) + "ago by" + recipe.user.username.capitalize 
 
       - if logged_in? && (current_user == recipe.user || current_user.admin?)
-        .recipe-actions
-          = link_to 'Edit this recipe', edit_recipe_path(recipe), class: 'btn btn-outline-success btn-xs'
-          = link_to 'Delete this recipe', recipe_path(recipe), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-xs btn-outline-danger'
-  
+        .bottom-contents
+          .recipe-actions
+            = link_to 'Edit this recipe', edit_recipe_path(recipe), class: 'btn btn-outline-success btn-xs'
+            = link_to 'Delete this recipe', recipe_path(recipe), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-xs btn-outline-danger'
+    

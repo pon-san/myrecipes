@@ -12,6 +12,15 @@
         border-radius: 50%;
       }
     }
+    .media-body {
+      a {
+        color: #158b2b;
+      }
+      a:hover {
+        text-decoration: none;
+        opacity: 0.8;
+      }
+    }
   }
 }
 .user-show {
@@ -22,7 +31,6 @@
         border-radius: 50% !important;
       }
     }
-  
   }
   .title {
     margin-bottom: 20px;

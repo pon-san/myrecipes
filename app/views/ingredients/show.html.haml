@@ -1,0 +1,11 @@
+= render 'shared/page_title', title: "#{@ingredient.name}"
+- if @ingredient.recipes.count != 0
+  %h4.subtitle.center= "Recipe's containing #{@ingredient.name}"
+  .center
+    = paginate @ingredient_recipes
+  .recipes-listing-wrapper  
+    = render 'recipes/recipe', obj: @ingredient_recipes
+  .center
+    = paginate @ingredient_recipes
+- else 
+  %h4.center No recipes yet!

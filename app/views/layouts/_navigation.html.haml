@@ -12,18 +12,17 @@
         = link_to "All recipes", recipes_path, class: 'nav-link'
       %li.nav-item
         = link_to "All users", users_path, class: 'nav-link'
-      %li.nav-item.dropdown
-        -# = link_to "All Ingredients", ingredients_path
-        = link_to "Recipes", "#", id: 'navbarDropdown', class: 'nav-link dropdown-toggle', role: "button", data: {toggle: "dropdown"}, aria: {haspopup: "true", expanded: "false"}
-        .dropdown-menu{aria: {labelledby: "navbarDropdown"}}
-          -# = link_to "All Ingredients", ingredients_path
-          -# - Ingredient.all.each do |ingredient|
-          -#   = link_to ingredient.name.capitalize, ingredient_path(ingredient) 
-          - if logged_in?  
+      -if logged_in?  
+        %li.nav-item.dropdown
+          = link_to "Recipes", "#", id: 'navbarDropdown', class: 'nav-link dropdown-toggle', role: "button", data: {toggle: "dropdown"}, aria: {haspopup: "true", expanded: "false"}
+          .dropdown-menu{aria: {labelledby: "navbarDropdown"}}
+            = link_to "All Ingredients", ingredients_path
+            - Ingredient.all.each do |ingredient|
+              = link_to ingredient.name.capitalize, ingredient_path(ingredient) 
             = link_to "Create a new recipe", new_recipe_path, class: 'dropdown-item'
             = link_to "Comming soon", "#", class: 'dropdown-item'
-          .dropdown-divider
-          = link_to "Nothing yet", "#", class: 'dropdown-item'
+            .dropdown-divider
+            = link_to "Add a new ingredient", new_ingredient_path, class: 'dropdown-item'
 
     %ul.navbar-nav.navbar-right
       - if logged_in?
