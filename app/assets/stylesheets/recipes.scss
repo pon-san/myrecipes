@@ -9,8 +9,15 @@
         height: 100%;
       }
     }
-    .recipe-description  {
 
+    .ingredients {
+      a {
+        color: #fff;
+      }
+      a:hover {
+        text-decoration: none;
+        opacity: 0.8;
+      }
     }
     .other-info {
       margin-bottom: 30px;

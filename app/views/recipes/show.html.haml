@@ -5,6 +5,10 @@
       .recipe-image.center= image_tag @recipe.image.url
     %h4.recipe-description.center
       %strong Steps:
+    - if @recipe.ingredients.any?
+      .ingredients
+        %span Ingredients: 
+        = render @recipe.ingredients
     <hr />
     = simple_format(@recipe.description)
     <hr />
