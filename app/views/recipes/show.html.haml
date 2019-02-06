@@ -1,22 +1,20 @@
 = render 'shared/page_title', title: @recipe.name.capitalize
-.col-md-8.col-md-offset-2.recipe-box
-  -# - if @recipe.image?
-  -#   .center= image_tag @recipe.image.url
-  %h4.center.description
-    %strong Steps:
-  <hr />
-  = simple_format(@recipe.description)
-  <hr />
-  .pull-right 
-    %p.center
-      %em Created by:
-    %p.center
-      = link_to gravatar_for(@recipe.user), recipes_path
-    %p.center  
-      %small= @recipe.user.username.capitalize
-      .pull-right= "#{time_ago_in_words(@recipe.created_at)} ago"  
-  .recipe-actions
-    -if logged_in? && (current_user == @recipe.user || current_user.admin?)
-      = link_to 'Edit this recipe', edit_recipe_path(@recipe), class: 'btn btn-xs btn-warning'
-      = link_to 'Delete this recipe', recipe_path(@recipe), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-xs btn-danger'
-  = link_to 'Return to recipes listing', recipes_path, class: 'btn btn-xs btn-primary'
+.recipe-show
+  .recipe-box
+    - if @recipe.image?
+      .recipe-image.center= image_tag @recipe.image.url
+    %h4.recipe-description.center
+      %strong Steps:
+    <hr />
+    = simple_format(@recipe.description)
+    <hr />
+    .other-info
+      .chef-info
+        .chefname= "Created by: #{@recipe.user.username}"
+        .chefavatar= link_to gravatar_for(@recipe.user), recipes_path
+        .created_at= " #{time_ago_in_words(@recipe.created_at)} ago"  
+    .recipe-actions
+      -if logged_in? && (current_user == @recipe.user || current_user.admin?)
+        = link_to 'Edit this recipe', edit_recipe_path(@recipe), class: 'btn btn-xs btn-warning'
+        = link_to 'Delete this recipe', recipe_path(@recipe), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-xs btn-danger'
+      = link_to 'Return to recipes listing', recipes_path, class: 'btn btn-xs btn-primary'

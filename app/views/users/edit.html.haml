@@ -1,26 +1,26 @@
 = render 'shared/errors', obj: @user
 = render 'shared/page_title', title: 'edit user profile'
 
-.row
-  .col-md-12
-    = form_for(@user, :html => {class: 'form-horizontal', role: 'form'}) do |f|
-      .form-group
-        .control-label.col-md-2
-          = f.label :username, 'Username'
-        .col-md-8
-          = f.text_field :username, class: 'form-control', placeholder: 'enter your name', autofocus: true 
-      .form-group
-        .control-label.col-md-2
-          = f.label :email
-        .col-md-8
-          = f.email_field :email, class: 'form-control', placeholder: 'enter your email'
-      .form-group
-        .control-label.col-md-2
-          = f.label :avatar, 'Select avatar'
-        .col-md-8
-          = f.file_field :avatar
-      .form-group
-        .col-md-offset-2.col-md-10
-          = f.submit('Edit', class: 'btn btn-outline-primary btn-lg')
-    .col-md-offset-4.col-md-4.colormatch
+.col-md-12
+  = form_for(@user, :html => {class: 'form-horizontal', role: 'form'}) do |f|
+    .form-group
+      .normal-label
+        = f.label :username, 'Username'
+      .normal-form
+        = f.text_field :username, class: 'form-control', placeholder: 'enter your name', autofocus: true 
+    .form-group
+      .normal-label
+        = f.label :email
+      .normal-form
+        = f.email_field :email, class: 'form-control', placeholder: 'enter your email'
+    .form-group
+      .normal-label
+        = f.label :avatar, 'Select avatar'
+      .normal-form
+        = f.file_field :avatar
+    .form-group
+      .form-button
+        = f.submit('Edit your account', class: 'btn btn-outline-primary btn-lg form-btn')
+  .link-to-other-page.center
+    .colormatch
       = link_to 'Cancel request and return to recipes listing', recipes_path

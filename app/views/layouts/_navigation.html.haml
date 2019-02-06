@@ -11,10 +11,15 @@
       %li.nav-item
         = link_to "All users", users_path, class: 'nav-link'
       %li.nav-item.dropdown
-        = link_to "Dropdown", "#", id: 'navbarDropdown', class: 'nav-link dropdown-toggle', role: "button", data: {toggle: "dropdown"}, aria: {haspopup: "true", expanded: "false"}
+        -# = link_to "All Ingredients", ingredients_path
+        = link_to "Recipes", "#", id: 'navbarDropdown', class: 'nav-link dropdown-toggle', role: "button", data: {toggle: "dropdown"}, aria: {haspopup: "true", expanded: "false"}
         .dropdown-menu{aria: {labelledby: "navbarDropdown"}}
-          = link_to "Action", "#", class: 'dropdown-item'
-          = link_to "Action", "#", class: 'dropdown-item'
+          -# = link_to "All Ingredients", ingredients_path
+          -# - Ingredient.all.each do |ingredient|
+          -#   = link_to ingredient.name.capitalize, ingredient_path(ingredient) 
+          - if logged_in?  
+            = link_to "Create a new recipe", new_recipe_path, class: 'dropdown-item'
+            = link_to "Action", "#", class: 'dropdown-item'
           .dropdown-divider
           = link_to "somethingelse", "#", class: 'dropdown-item'
 

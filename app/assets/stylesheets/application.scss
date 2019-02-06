@@ -22,9 +22,13 @@ label {
 .center {
   text-align: center;
 }
+.pull-right {
+  float: right;
+}
 
 .container {
   width: 80%;
+  min-height: 650px;
 }
 
 .flash-messages {
@@ -59,6 +63,17 @@ label {
   }
 }
 
+.normal-form {
+  width: 100%;
+}
+
+.form-button {
+  .form-btn {
+  }
+}
+.user-avatar {
+  border-radius: 50%;
+}
 #logo {
   float: left;
   font-size: 1.7em;

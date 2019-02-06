@@ -1,5 +1,6 @@
 = render 'shared/page_title', title: 'All recipes'
 
-= render 'recipe', obj: @recipes
+.recipes-listing-wrapper
+  = render 'recipe', obj: @recipes
 
 = paginate @recipes

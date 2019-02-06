@@ -1,0 +1,20 @@
+.recipes-listing-wrapper {
+  .recipe-box {
+    display: inline-block;
+    height: 500px;
+    padding: 30px;
+    border: 1px solid #9e9e9e;
+    border-radius: 3px;
+    margin-bottom: 20px;
+  
+    .card-img-top {
+      margin: 0 auto;
+      width: 100%;
+      height: 50%;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}

@@ -1,10 +1,34 @@
-// Place all the styles related to the recipes controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-.recipe-box {
-  padding: 30px;
-  border: 1px solid #9e9e9e;
-  border-radius: 3px;
-  margin-bottom: 20px;
+@import 'shared/recipes_listing';
+.recipe-show {
+  .recipe-box {
+    width: 80%;
+    margin: 0 auto;
+    .recipe-image {
 
+    }
+    .recipe-description  {
+
+    }
+    .other-info {
+      margin-bottom: 30px;
+      .chef-info {
+        .chefname {
+          display: inline-block;
+          vertical-align: middle;
+        }
+        .chefavatar {
+          vertical-align: middle;
+          display: inline-block;
+          img {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+          }
+        }
+      }
+    }
+    .recipe-actions {
+      
+    }
+  }
 }

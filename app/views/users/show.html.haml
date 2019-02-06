@@ -1,9 +1,14 @@
 = render 'shared/page_title', title: @user.username + "'s show page"
+.user-show 
+  .user-top-container.center
+    .user-avatar= gravatar_for(@user, size: 150)
 
-.row
-- if @user.recipes.count != 0
-  %h4.center= @user.username + "'s recipes"
-  = render 'recipes/recipe', obj: @user_recipes
--else
-  .center No recipes yet!
+  - if @user.recipes.count != 0
+    %h4.title.center= @user.username + "'s recipes"
+    .recipes-listing-wrapper
+      = render 'recipes/recipe', obj: @user_recipes
+  -else    
+    .center No recipes yet!
+      
+      
 

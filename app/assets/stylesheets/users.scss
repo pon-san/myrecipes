@@ -1,3 +1,33 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.users-container {
+  margin-top: 30px;
+  .users-list {
+    .user-info {
+      margin-bottom: 30px;
+    }
+    .user-avatar {
+      img {
+        border-radius: 50%;
+      }
+    }
+  }
+}
+.user-show {
+  .user-top-container {
+    margin-bottom: 30px;
+    .user-avatar {
+      img {
+        border-radius: 50% !important;
+      }
+    }
+  
+  }
+  .title {
+    margin-bottom: 20px;
+  }
+  @import 'shared/recipes_listing';
+
+}
+

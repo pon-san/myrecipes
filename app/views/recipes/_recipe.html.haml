@@ -1,11 +1,11 @@
 - obj.each do |recipe|
-  .row
-    .col-md-2
-      %section.user_info.center
-        = gravatar_for(recipe.user, size: 120)
-    .col-md-8.recipe-box
-      %h4= link_to recipe.name, recipe_path(recipe)
-      %p= truncate(recipe.description, length: 150)
+  .recipe-box.card{style: 'width: 49.7%;'}
+    .card-img-top= image_tag(recipe.image.url)
+    .card-body
+      %h4.card-title 
+        = link_to recipe.name, recipe_path(recipe)
+      %p.card-description
+        = truncate(recipe.description, length: 150)
       %p
         %span.quiet
           %small= "Created" + time_ago_in_words(recipe.created_at) + "ago by" + recipe.user.username.capitalize 
