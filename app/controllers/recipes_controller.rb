@@ -14,6 +14,8 @@ class RecipesController < ApplicationController
   end
 
   def show
+    @comment = Comment.new()
+    @comments = @recipe.comments.page(params[:page]).per(5)
   end
 
   def create

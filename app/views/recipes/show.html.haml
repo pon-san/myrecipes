@@ -22,3 +22,25 @@
         = link_to 'Edit this recipe', edit_recipe_path(@recipe), class: 'btn btn-xs btn-outline-success'
         = link_to 'Delete this recipe', recipe_path(@recipe), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-xs btn-outline-danger'
       = link_to 'Return to recipes listing', recipes_path, class: 'btn btn-xs btn-outline-primary'
+
+- if logged_in?
+  .comment-form-wrapper
+    %h3 Comments:
+    <hr />
+    = form_for([@recipe, @comment], remote: true, :html => {class: "form-horizontal", role: "form"}) do |f|
+      .form-group
+        .control-label
+          = f.label :description, 'Comment'
+        = f.text_area :description, rows: 10, class: 'form-control', placeholder: 'Enter comment here'
+      .form-group
+        = f.submit class: 'btn btn-outline-success btn-lg'
+      <hr />
+
+
+- if @recipe.comments != 0
+  .comments-wrapper
+    %h3 Prior Comments:
+    #messages
+      = render partial: 'comments/comments', object: @comments
+- else
+  %h3 No Comments Yet!      

@@ -1,0 +1,21 @@
+.comment-form-wrapper {
+  width: 80%;
+  margin: auto;
+  padding-top: 50px;
+
+}
+
+.comments-wrapper {
+  width: 80%;
+  margin: 0 auto;
+
+  .comments {
+    .comment {
+      .user_info {
+        img {
+          border-radius: 50%;
+        }
+      }
+    }
+  }
+}

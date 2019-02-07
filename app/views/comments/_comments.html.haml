@@ -1,0 +1,6 @@
+.center
+  = paginate comments
+- comments.each do |comment|
+  .comments= render(partial: 'comments/comment', object: comment)
+.center
+  = paginate comments

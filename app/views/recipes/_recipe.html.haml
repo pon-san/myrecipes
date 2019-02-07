@@ -11,7 +11,7 @@
           %span Ingredients: 
           = render recipe.ingredients
       .other-info
-        %small= "Created" + time_ago_in_words(recipe.created_at) + "ago by" + recipe.user.username.capitalize 
+        %small= "Created #{time_ago_in_words(recipe.created_at)} ago by #{recipe.user.username.capitalize} | #{pluralize(recipe.comments.count, 'Comment')}" 
 
       - if logged_in? && (current_user == recipe.user || current_user.admin?)
         .bottom-contents
